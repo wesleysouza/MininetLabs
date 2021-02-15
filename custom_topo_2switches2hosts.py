@@ -24,8 +24,9 @@ class MyTopo(Topo):
 		# AddSwitch
 		switchS1 = self.addSwitch('s1')
 		switchS2 = self.addSwitch('s2')
+		
 
-		params = {delay='5ms', max_queue_size=1000, bw=10}
+		params = {bw=10, delay='5ms', loss=0, max_queue_size=1000, use_htb=True}
 
 		# Add links
 		self.addLink(hostH1, switchS1, **params)
