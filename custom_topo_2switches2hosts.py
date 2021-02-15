@@ -27,10 +27,10 @@ class MyTopo(Topo):
 		switchS2 = self.addSwitch('s2')
 
 		# Add links
-		self.addLink(hostH1, switchS1, bw=10, delay='5ms', loss=0, max_queue_size=1000, use_htb=True)
-		self.addLink(hostH2, switchS1, bw=10, delay='5ms', loss=0, max_queue_size=1000, use_htb=True)
-		self.addLink(switchS1, switchS2, bw=10, delay='5ms', loss=0, max_queue_size=1000, use_htb=True)
-		self.addLink(hostH3, switchS2, bw=10, delay='5ms', loss=0, max_queue_size=1000, use_htb=True)
-		self.addLink(hostH4, switchS2, bw=10, delay='5ms', loss=0, max_queue_size=1000, use_htb=True)
+		self.addLink(hostH1, switchS1, bw=10, delay='5ms', max_queue_size=1000, use_htb=True)
+		self.addLink(hostH2, switchS1, bw=10, delay='5ms', max_queue_size=1000, use_htb=True)
+		self.addLink(switchS1, switchS2, bw=10, delay='5ms', max_queue_size=1000, use_htb=True)
+		self.addLink(hostH3, switchS2, bw=10, delay='5ms', max_queue_size=1000, use_htb=True)
+		self.addLink(hostH4, switchS2, bw=10, delay='5ms', max_queue_size=1000, use_htb=True)
 
 topos = { 'mytopo': (lambda: MyTopo()) }
