@@ -6,7 +6,6 @@ from mininet.node import CPULimitedHost
 from mininet.link import TCLink
 from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
-from mininet.util import dumpNodeConnections
 
 class MyTopo(Topo):
 
@@ -26,11 +25,13 @@ class MyTopo(Topo):
 		switchS1 = self.addSwitch('s1')
 		switchS2 = self.addSwitch('s2')
 
+		#params = {delay='5ms', max_queue_size=1000}
+
 		# Add links
-		self.addLink(hostH1, switchS1, bw=10, delay='5ms', max_queue_size=1000)
-		self.addLink(hostH2, switchS1, bw=10, delay='5ms', max_queue_size=1000)
-		self.addLink(switchS1, switchS2, bw=10, delay='5ms', max_queue_size=1000)
-		self.addLink(hostH3, switchS2, bw=10, delay='5ms', max_queue_size=1000)
-		self.addLink(hostH4, switchS2, bw=10, delay='5ms', max_queue_size=10000)
+		self.addLink(hostH1, switchS1, bw=10)
+		self.addLink(hostH2, switchS1, bw=10)
+		self.addLink(switchS1, switchS2, bw=10)
+		self.addLink(hostH3, switchS2, bw=10)
+		self.addLink(hostH4, switchS2, bw=10)
 
 topos = { 'mytopo': (lambda: MyTopo()) }
